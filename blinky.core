@@ -1,0 +1,24 @@
+CAPI=2:
+name : blinky
+
+
+
+filesets:
+  rtl:
+    files:
+      - blinky.v : {file_type : verilogSource}
+      
+  cv96:
+    files:
+      - cv96.qsf : {file_type : QSF}
+      
+
+targets:
+  cv96:
+    default_tool: mistral
+    filesets: [rtl,cv96]
+    tools:
+      mistral:
+        device: 5CSEBA6U19I7
+#        nextpnr_options : [--compress-rbf]
+    toplevel: top
